@@ -13,4 +13,6 @@ $path = $basePath . '/' . $filename;
 echo $path;
 
 $complex = $prefix . ' ' . $middle . ' ' . $suffix;
+echo $complex;
 $url = $protocol . '://' . $host . ':' . $port . '/' . $path;
+echo $url;

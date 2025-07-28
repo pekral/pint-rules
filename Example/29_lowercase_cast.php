@@ -14,6 +14,7 @@ echo $array;
 $string = (string) $number;
 echo $string;
 $boolean = (bool) $value;
+echo $boolean;
 
-$result = (int) ($a + $b);
 $formatted = (string) number_format($price, 2);
+echo $formatted;

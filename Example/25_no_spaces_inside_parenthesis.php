@@ -22,5 +22,4 @@ echo $array;
 print_r($array);
 
 $object = new ClassName($param1, $param2);
-echo $object;
-var_dump($object);
+assert($object instanceof ClassName);

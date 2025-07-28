@@ -24,5 +24,9 @@ function createUser(string $name): User
  */
 function processData(array $data, bool $validate = true): array
 {
+    if ($validate) {
+        return array_filter($data);
+    }
+
     return $data;
 }

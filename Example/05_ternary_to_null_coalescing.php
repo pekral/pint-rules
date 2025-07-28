@@ -16,4 +16,6 @@ $deepValue = $array['level1']['level2']['level3'] ?? 'fallback';
 echo $deepValue;
 
 $legacyCheck = $user['name'] ?? 'Anonymous';
+echo $legacyCheck;
 $modernCheck = $user['name'] ?? 'Anonymous';
+echo $modernCheck;

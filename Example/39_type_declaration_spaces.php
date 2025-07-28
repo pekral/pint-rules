@@ -13,8 +13,9 @@ function process(string $input, int $count, bool $validate = true): array
 class Example
 {
 
-    public function __construct(): void
+    public function __construct()
     {
+        // Empty constructor - no initialization needed
     }
 
 }

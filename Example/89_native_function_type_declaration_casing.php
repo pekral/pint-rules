@@ -1,10 +1,10 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 /**
  * Example demonstrating native_function_type_declaration_casing rule
- * 
+ *
  * This rule ensures proper casing for native PHP function type declarations
  */
 
@@ -21,7 +21,7 @@ function processArray(array $data): array
 
 function validateString(string $input): bool
 {
-    return !empty($input);
+    return $input !== '';
 }
 
 function calculateSum(int $a, int $b): int
@@ -53,6 +53,7 @@ function processCallable(callable $callback): mixed
 // Class methods with native type declarations
 class ExampleClass
 {
+
     public function getString(): string
     {
         return 'example string';
@@ -85,8 +86,7 @@ class ExampleClass
     
     public function getCallable(): callable
     {
-        return function () {
-            return 'callback result';
-        };
+        return static fn () => 'callback result';
     }
-} 
+
+}

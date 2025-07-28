@@ -12,8 +12,9 @@ use App\Models\User;
 class UserService
 {
 
-    public function __construct(): void
+    public function __construct()
     {
+        // Empty constructor - no initialization needed
     }
     
     public function findUser(int $id): ?User

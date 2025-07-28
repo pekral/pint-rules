@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 /**
  * Example demonstrating phpdoc_tag_casing rule
@@ -10,9 +10,6 @@ declare(strict_types=1);
 
 /**
  * Returns the user name
- *
- * @param string $prefix
- * @return string
  */
 function getUserName(string $prefix): string
 {
@@ -21,12 +18,8 @@ function getUserName(string $prefix): string
 
 /**
  * Calculates the sum
- *
- * @param int $a
- * @param int $b
- * @return int
  */
 function sum(int $a, int $b): int
 {
     return $a + $b;
-} 
+}

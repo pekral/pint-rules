@@ -13,4 +13,6 @@ $value = $condition ? $trueValue : $falseValue;
 echo $value;
 
 $result = $a > $b ? ($a + $b) : ($a - $b);
+echo $result;
 $display = $showDetails ? 'Show all details' : 'Show summary only';
+echo $display;

@@ -8,12 +8,12 @@ declare(strict_types = 1);
 class Example
 {
 
-    public function __construct(): void
+    public function __construct()
     {
         // Constructor
     }
     
-    public function __destruct(): void
+    public function __destruct()
     {
         // Destructor
     }
@@ -21,19 +21,22 @@ class Example
     public function __get(string $name): void
     {
         // Getter
+        echo $name;
     }
     
-    public function __set($name, $value): void
+    public function __set(string $name, mixed $value): void
     {
         // Setter
+        echo $name . ': ' . $value;
     }
     
-    public function __call($name, $arguments): void
+    public function __call(string $name, array $arguments): void
     {
         // Call method
+        echo $name . ' called with ' . count($arguments) . ' arguments';
     }
     
-    public function __toString(): void
+    public function __toString(): string
     {
         return 'Example';
     }

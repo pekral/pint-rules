@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 // Example for: operator_linebreak
 // Rule: operator_linebreak => true
 
@@ -7,9 +9,7 @@ $result = $value1
     + $value2
     + $value3;
 
-$message = 'Hello '
-    . $name
-    . '!';
+$message = 'Hello ' . $name . '!';
 
 $condition = $a > $b
     && $c < $d
@@ -18,7 +18,7 @@ $condition = $a > $b
 $array = [
     'key1' => 'value1',
     'key2' => 'value2',
-    'key3' => 'value3'
+    'key3' => 'value3',
 ];
 
 echo $result;

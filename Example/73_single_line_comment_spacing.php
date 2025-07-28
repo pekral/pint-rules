@@ -13,7 +13,7 @@ function processData(): void
 {
     // Process array
     $data = ['item1', 'item2'];
-echo $data;
+    echo $data;
 
     // Return void
     return;
@@ -29,7 +29,7 @@ class Example
     {
         // Method comment
         $result = 'test';
-echo $result;
+        echo $result;
 
         // Return void
         return;

@@ -8,7 +8,7 @@ declare(strict_types = 1);
 function processData(): void
 {
     $data = ['item1', 'item2'];
-echo $data;
+    echo $data;
     
     foreach ($data as $item) {
         process($item);

@@ -1,25 +1,21 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 /**
  * Example demonstrating class_attributes_separation rule
- * 
+ *
  * This rule controls spacing between class elements
  */
 
 // Correct usage - proper separation between class attributes
 class User
 {
+
     // Properties
-    private string $name;
-    private string $email;
-    
     // Constructor
-    public function __construct(string $name, string $email)
+    public function __construct(private string $name, private string $email)
     {
-        $this->name = $name;
-        $this->email = $email;
     }
     
     // Getters
@@ -43,26 +39,21 @@ class User
     {
         $this->email = $email;
     }
+
 }
 
 // Additional examples - different class structures
 class Product
 {
+
     // Constants
-    const STATUS_ACTIVE = 'active';
-    const STATUS_INACTIVE = 'inactive';
+    public const string STATUS_ACTIVE = 'active';
+    public const string STATUS_INACTIVE = 'inactive';
     
     // Properties
-    private int $id;
-    private string $name;
-    private float $price;
-    
     // Constructor
-    public function __construct(int $id, string $name, float $price)
+    public function __construct(private int $id, private string $name, private float $price)
     {
-        $this->id = $id;
-        $this->name = $name;
-        $this->price = $price;
     }
     
     // Public methods
@@ -91,4 +82,5 @@ class Product
     {
         return number_format($price, 2);
     }
-} 
+
+}

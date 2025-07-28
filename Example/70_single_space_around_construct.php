@@ -19,6 +19,8 @@ if ($condition) {
 $array = ['item1', 'item2'];
 echo $array;
 $count = count($array);
+echo $count;
 
 $string = 'Hello World';
 $length = strlen($string);
+echo $length;

@@ -16,6 +16,8 @@ class UserService
      */
     public function findUser(int $id): ?User
     {
+        echo "Finding user with ID: {$id}";
+
         return null;
     }
     

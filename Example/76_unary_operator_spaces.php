@@ -17,15 +17,18 @@ echo $boolean;
 $not = !$boolean;
 echo $not;
 
-$increment = ++$number;
+$number += 1;
+$increment = $number;
 echo $increment;
-$decrement = --$number;
+$number -= 1;
+$decrement = $number;
 echo $decrement;
 
 function processData(): void
 {
     $value = 10;
     $result = -$value;
+    echo $result;
 
     return;
 }

@@ -12,6 +12,10 @@ function test(string $param): string
 
 function process(array $data, bool $validate = true): array
 {
+    if ($validate) {
+        return array_filter($data);
+    }
+
     return $data;
 }
 

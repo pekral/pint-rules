@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 /**
  * Example demonstrating phpdoc_annotation_without_dot rule
@@ -28,4 +28,4 @@ function getUserName(): string
 function sum(int $a, int $b): int
 {
     return $a + $b;
-} 
+}

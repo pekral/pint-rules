@@ -21,3 +21,4 @@ echo $formatted;
 
 $array = ['item1', 'item2'];
 $count = count($array);
+echo $count;

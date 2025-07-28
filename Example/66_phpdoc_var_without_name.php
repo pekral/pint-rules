@@ -6,24 +6,25 @@ declare(strict_types = 1);
 // Rule: phpdoc_var_without_name => true
 
 /**
- * @var string
+ * @var string $name
  */
 $name = 'John';
 echo $name;
 
 /**
- * @var int
+ * @var int $age
  */
 $age = 30;
 echo $age;
 
 /**
- * @var array
+ * @var array $data
  */
 $data = ['key' => 'value'];
 echo $data;
 
 /**
- * @var bool
+ * @var bool $active
  */
 $active = true;
+echo $active;

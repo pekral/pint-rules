@@ -8,7 +8,10 @@ declare(strict_types = 1);
 class UserExample
 {
 
+    /** @var string */
     private $name;
+    
+    /** @var string */
     private $email;
     
     public function getName(): string
@@ -28,7 +31,7 @@ class UserExample
 
 }
 
-interface UserInterface
+interface User
 {
 
     public function getName(): string;

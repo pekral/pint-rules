@@ -21,6 +21,7 @@ class Logger
     public function log(string $message): void
     {
         // Log message
+        echo $message;
     }
     
     public function clear(): void

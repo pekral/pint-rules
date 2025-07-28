@@ -1,10 +1,10 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 /**
  * Example demonstrating declare_equal_normalize rule
- * 
+ *
  * This rule normalizes spacing around equals sign in declare statements
  */
 
@@ -14,8 +14,8 @@ declare(ticks=1);
 declare(encoding='UTF-8');
 
 // Additional examples - various declare statements
-declare(strict_types=1, ticks=1);
-declare(encoding='UTF-8', strict_types=1);
+declare(strict_types=1, ticks = 1);
+declare(encoding='UTF-8', strict_types = 1);
 
 // Function with declare statement
 function exampleFunction(): void
@@ -29,13 +29,14 @@ function exampleFunction(): void
 // Class with declare statement
 class ExampleClass
 {
+
     public function exampleMethod(): void
     {
         declare(strict_types=1);
         
-        $result = 10 + 20;
-        return $result;
+        return 10 + 20;
     }
+
 }
 
 // Multiple declare statements
@@ -45,5 +46,8 @@ declare(encoding='UTF-8');
 
 // Example usage after declare statements
 $number = 123;
+echo $number;
 $string = 'hello';
-$array = [1, 2, 3]; 
+echo $string;
+$array = [1, 2, 3];
+echo $array;

@@ -18,6 +18,8 @@ echo $setting;
 $data = null;
 echo $data;
 $result = $data?->getValue();
+echo $result;
 
 $object = new SomeObject();
 $value = $object->getProperty();
+echo $value;

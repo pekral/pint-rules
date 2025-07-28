@@ -1,37 +1,33 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 /**
  * Example demonstrating multiline_whitespace_before_semicolons rule
- * 
+ *
  * This rule controls whitespace before semicolons in multiline statements
  */
 
 // Correct usage - proper whitespace before semicolons in multiline statements
-$result = $this->getData()
-    ->filter(function ($item) {
-        return $item > 0;
-    })
-    ->map(function ($item) {
-        return $item * 2;
-    })
+$this->getData()
+    ->filter(static fn ($item) => $item > 0)
+    ->map(static fn ($item) => $item * 2)
     ->toArray();
 
 // Additional examples - various multiline statements
-$config = [
-    'database' => [
-        'host' => 'localhost',
-        'port' => 3306,
-        'name' => 'myapp',
-    ],
+[
     'cache' => [
         'driver' => 'redis',
         'host' => '127.0.0.1',
     ],
+    'database' => [
+        'host' => 'localhost',
+        'name' => 'myapp',
+        'port' => 3306,
+    ],
 ];
 
-$query = $this->createQueryBuilder()
+$this->createQueryBuilder()
     ->select('u')
     ->from('User', 'u')
     ->where('u.active = :active')
@@ -40,27 +36,20 @@ $query = $this->createQueryBuilder()
     ->getQuery();
 
 // Function calls with proper semicolon placement
-$formatted = formatString(
-    $input,
-    $options
-);
+formatString($input, $options);
 
-$processed = processData(
-    $data,
-    $filters,
-    $sort
-);
+processData($data, $filters, $sort);
 
 // Array assignments
-$users = [
+[
     'admin' => [
         'name' => 'Administrator',
-        'role' => 'admin',
         'permissions' => ['read', 'write', 'delete'],
+        'role' => 'admin',
     ],
     'user' => [
         'name' => 'Regular User',
-        'role' => 'user',
         'permissions' => ['read'],
+        'role' => 'user',
     ],
-]; 
+];

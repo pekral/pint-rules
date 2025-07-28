@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 /**
  * Example demonstrating php_unit_attributes rule
@@ -8,18 +8,21 @@ declare(strict_types=1);
  * Toto pravidlo převádí PHPUnit anotace na atributy.
  */
 
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 class ExampleTest extends TestCase
 {
-    #[\PHPUnit\Framework\Attributes\Test]
+
+    #[Test]
     public function testAddition(): void
     {
         $this->assertEquals(2, 1 + 1);
     }
 
-    #[\PHPUnit\Framework\Attributes\DataProvider('additionProvider')]
-    public function testAdditionWithProvider($a, $b, $expected): void
+    #[DataProvider('additionProvider')]
+    public function testAdditionWithProvider(int $a, int $b, int $expected): void
     {
         $this->assertEquals($expected, $a + $b);
     }
@@ -31,4 +34,5 @@ class ExampleTest extends TestCase
             [2, 2, 4],
         ];
     }
-} 
+
+}

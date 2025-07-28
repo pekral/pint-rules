@@ -5,11 +5,18 @@ declare(strict_types = 1);
 // Example for: phpdoc_single_line_var_spacing
 // Rule: phpdoc_single_line_var_spacing => true
 
-/**
- * @var string $name User name
- * @var int $age User age
- * @var bool $active Whether user is active
- */
+$name = '';
+$age = 0;
+$active = false;
+/** @var string $name User name */
+$name = '';
+/** @var int $age User age */
+$age = 0;
+/** @var bool $active Whether user is active */
+$active = false;
+echo $name;
+echo $age;
+echo $active;
 
 /**
  * @param string $name User name

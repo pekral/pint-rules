@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 /**
  * Example demonstrating php_unit_method_casing rule
@@ -12,6 +12,7 @@ use PHPUnit\Framework\TestCase;
 
 class ExampleTest extends TestCase
 {
+
     public function testAddition(): void
     {
         $this->assertEquals(2, 1 + 1);
@@ -26,4 +27,5 @@ class ExampleTest extends TestCase
     {
         $this->assertFalse(false);
     }
-} 
+
+}

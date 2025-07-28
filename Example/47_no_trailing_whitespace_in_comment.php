@@ -20,4 +20,3 @@ function test(): void
 }
 
 # Shell-style comment
-$config = ['setting' => 'value'];

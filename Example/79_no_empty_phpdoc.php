@@ -21,6 +21,8 @@ class Example
      */
     public function method(string $param): void
     {
+        echo $param;
+
         return;
     }
 

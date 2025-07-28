@@ -1,10 +1,10 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 /**
  * Example demonstrating encoding rule
- * 
+ *
  * This rule ensures proper encoding declaration
  */
 
@@ -12,8 +12,8 @@ declare(strict_types=1);
 declare(encoding='UTF-8');
 
 // Additional examples - various encoding declarations
-declare(encoding='UTF-8', strict_types=1);
-declare(strict_types=1, encoding='UTF-8');
+declare(encoding='UTF-8', strict_types = 1);
+declare(strict_types=1, encoding = 'UTF-8');
 
 // Function with encoding declaration
 function exampleFunction(): void
@@ -27,13 +27,14 @@ function exampleFunction(): void
 // Class with encoding declaration
 class ExampleClass
 {
+
     public function exampleMethod(): void
     {
         declare(encoding='UTF-8');
         
-        $message = 'Example message';
-        return $message;
+        return 'Example message';
     }
+
 }
 
 // Multiple encoding declarations
@@ -42,5 +43,8 @@ declare(strict_types=1);
 
 // Example usage with different character encodings
 $utf8Text = 'Hello 世界';
+echo $utf8Text;
 $asciiText = 'Hello World';
-$specialChars = 'áéíóúñü'; 
+echo $asciiText;
+$specialChars = 'áéíóúñü';
+echo $specialChars;

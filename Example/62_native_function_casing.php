@@ -21,7 +21,9 @@ echo $uppercase;
 
 $number = 42;
 $formatted = number_format($number, 2);
+echo $formatted;
 
 $data = ['key' => 'value'];
 $json = json_encode($data);
 $decoded = json_decode($json, true);
+echo $decoded;

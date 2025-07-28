@@ -25,3 +25,4 @@ echo $result;
 $data = processData('input');
 echo $data;
 $sum = calculate(1, 2);
+echo $sum;

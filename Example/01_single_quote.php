@@ -13,3 +13,4 @@ $path = 'C:\\Users\\John\\Documents';
 echo $path;
 
 $complexString = 'This string contains \'single quotes\' and "double quotes"';
+echo $complexString;

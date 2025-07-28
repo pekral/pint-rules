@@ -28,3 +28,4 @@ $email = $user->getEmail();
 echo $email;
 
 $result = $user->getName()->toUpperCase();
+echo $result;

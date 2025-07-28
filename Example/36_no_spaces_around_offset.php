@@ -15,6 +15,8 @@ echo $last;
 $assoc = ['key' => 'value', 'other' => 'data'];
 echo $assoc;
 $value = $assoc['key'];
+echo $value;
 
 $nested = ['level1' => ['level2' => 'value']];
 $nestedValue = $nested['level1']['level2'];
+echo $nestedValue;

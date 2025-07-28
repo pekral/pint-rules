@@ -14,6 +14,7 @@ class UserControllerExample
     #[Route('/{id}', methods: ['GET'])]
     public function show(int $id): Response
     {
+        echo "Showing user with ID: {$id}";
         // ...
     }
 
