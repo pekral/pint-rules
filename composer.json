@@ -1,20 +1,50 @@
 {
   "name": "pekral/pint-rules",
-  "description": "Pint - custom rule set",
+  "description": "Extensible package of custom rules for Laravel Pint - maintains consistent code style and high quality of PHP projects",
+  "keywords": [
+    "laravel",
+    "pint",
+    "code-style",
+    "php",
+    "coding-standards",
+    "code-formatter",
+    "php-cs-fixer",
+    "code-quality",
+    "development-tools"
+  ],
+  "type": "library",
   "license": ["MIT"],
+  "authors": [
+    {
+      "name": "Petr Král",
+      "email": "kral.petr.88@gmail.com",
+      "homepage": "https://github.com/pekral"
+    }
+  ],
+  "homepage": "https://github.com/pekral/pint-rules",
+  "support": {
+    "issues": "https://github.com/pekral/pint-rules/issues",
+    "source": "https://github.com/pekral/pint-rules"
+  },
   "require": {
-    "php": "^8.3",
+    "php": "^8.4",
     "laravel/pint": "^1.24"
-  }
-,
+  },
   "require-dev": {
-    "roave/security-advisories": "dev-latest"
+    "roave/security-advisories": "dev-latest",
+    "pekral/phpcs-rules": "^0.4.1"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
   "config": {
     "allow-plugins": {
-      "phpstan/extension-installer": true
+      "phpstan/extension-installer": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0-dev"
     }
   }
 }
