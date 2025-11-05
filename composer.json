@@ -28,11 +28,10 @@
   },
   "require": {
     "php": "^8.4",
-    "laravel/pint": "^1.24"
+    "laravel/pint": "^1.25.1"
   },
   "require-dev": {
-    "roave/security-advisories": "dev-latest",
-    "pekral/phpcs-rules": "^0.4.1"
+    "roave/security-advisories": "dev-latest"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
