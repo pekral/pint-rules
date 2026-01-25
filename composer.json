@@ -28,7 +28,7 @@
   },
   "require": {
     "php": "^8.4",
-    "laravel/pint": "^1.25.1"
+    "laravel/pint": "^1.27.0"
   },
   "require-dev": {
     "roave/security-advisories": "dev-latest"
