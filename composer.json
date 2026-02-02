@@ -27,7 +27,7 @@
     "source": "https://github.com/pekral/pint-rules"
   },
   "require": {
-    "php": "^8.4",
+    "php": "^8.4|^8.5",
     "laravel/pint": "^1.27.0"
   },
   "require-dev": {
