@@ -19,11 +19,17 @@
 composer require --dev pekral/pint-rules
 ```
 
+During install (or update), a `pint.json` file is created in your project root if it does not already exist. To overwrite an existing `pint.json` with the package default, run:
+
+```bash
+vendor/bin/pint-rules install --force
+```
+
 ---
 
 ## ⚙️ Usage
 
-1. Add a `pint.json` file to your project or use the one provided in this package.
+1. Use the `pint.json` in your project root (created by the installer), or point Pint to the package config.
 2. Run Pint with this configuration:
 
 ```bash
@@ -59,7 +65,7 @@ composer require --dev pekral/pint-rules
 
 ### Rule Examples
 
-See the [Example/](Example/) directory for detailed examples of how each rule works, including before/after code samples.
+Rules can be customized in your `pint.json`; see the [Laravel Pint documentation](https://laravel.com/docs/pint) for available rules and configuration.
 
 ---
 
@@ -68,6 +74,23 @@ See the [Example/](Example/) directory for detailed examples of how each rule wo
 * Rules can be extended and customized in `pint.json`.
 * Supports PHP 8.4+.
 * Easy integration with CI/CD (GitHub Actions, GitLab CI, ...).
+
+---
+
+## 🔧 Development & CI
+
+The project uses the same GitHub Actions and Composer scripts as [pekral/php-skeleton](https://github.com/pekral/php-skeleton):
+
+* **`.github/workflows/checkers.yml`** — PHPCS, Pint, Rector, PHPStan, tests with coverage, security audit, composer validate/normalize, XML lint (on push/PR to `master`/`main` and weekly).
+* **`.github/workflows/stale.yml`** — Marks and closes stale issues/PRs (daily + manual).
+* **`.github/dependabot.yml`** — Weekly updates for Composer and GitHub Actions.
+
+**Local commands (same as CI):**
+
+```bash
+composer check   # Full quality pipeline (normalize, phpcs, pint, rector, phpstan, audit, tests)
+composer fix     # Apply all automatic fixes (normalize, rector, pint, phpcs)
+```
 
 
 

@@ -1,6 +1,10 @@
 {
   "name": "pekral/pint-rules",
   "description": "Extensible package of custom rules for Laravel Pint - maintains consistent code style and high quality of PHP projects",
+  "license": [
+    "MIT"
+  ],
+  "type": "composer-plugin",
   "keywords": [
     "laravel",
     "pint",
@@ -12,8 +16,6 @@
     "code-quality",
     "development-tools"
   ],
-  "type": "library",
-  "license": ["MIT"],
   "authors": [
     {
       "name": "Petr Král",
@@ -28,22 +30,64 @@
   },
   "require": {
     "php": "^8.4",
+    "composer-plugin-api": "^2.0",
     "laravel/pint": "^1.27.1"
   },
   "require-dev": {
+    "composer/composer": "^2.0",
+    "ergebnis/composer-normalize": "^2.50.0",
+    "pekral/cursor-rules": "^0.4.1",
+    "pekral/phpcs-rules": "^0.4.6",
+    "pekral/phpstan-rules": "^0.4.5",
+    "pekral/rector-rules": "^0.4.8",
+    "pestphp/pest": "^4.0",
     "roave/security-advisories": "dev-latest"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
+  "autoload": {
+    "psr-4": {
+      "Pekral\\PintRules\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "bin": [
+    "bin/pint-rules"
+  ],
   "config": {
     "allow-plugins": {
-      "phpstan/extension-installer": true,
-      "dealerdirect/phpcodesniffer-composer-installer": true
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "ergebnis/composer-normalize": true,
+      "pekral/cursor-rules": true,
+      "pekral/pint-rules": true,
+      "pestphp/pest-plugin": true,
+      "phpstan/extension-installer": true
     }
   },
   "extra": {
     "branch-alias": {
       "dev-master": "1.0-dev"
-    }
+    },
+    "class": "Pekral\\PintRules\\ComposerPlugin"
+  },
+  "scripts": {
+    "analyse": "vendor/bin/phpstan analyse --memory-limit=2G",
+    "build": "composer fix && composer check",
+    "check": "composer composer-normalize-check && composer phpcs-check && composer pint-check && composer rector-check && composer analyse && composer security-audit && composer test:coverage",
+    "composer-normalize-check": "composer normalize --dry-run",
+    "composer-normalize-fix": "composer normalize",
+    "fix": "composer composer-normalize-fix && composer rector-fix && composer pint-fix && composer phpcs-fix || true",
+    "phpcs-check": "vendor/bin/phpcs --standard=ruleset.xml src/ tests/ bin/",
+    "phpcs-fix": "vendor/bin/phpcbf --standard=ruleset.xml src/ tests/ bin/ || true",
+    "pint-check": "vendor/bin/pint src/ tests/ bin/ --test",
+    "pint-fix": "vendor/bin/pint src/ tests/ bin/",
+    "rector-check": "vendor/bin/rector process --dry-run",
+    "rector-fix": "vendor/bin/rector process",
+    "security-audit": "composer audit",
+    "test:coverage": "php -d pcov.enabled=1 -d pcov.directory=src -d xdebug.mode=off vendor/bin/pest --coverage --min=80 tests/"
   }
 }

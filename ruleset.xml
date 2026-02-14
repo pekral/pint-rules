@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<ruleset name="pint-rules PHPCS Rules">
+    <description>PHPCS rules for pint-rules package</description>
+    <rule ref="vendor/pekral/phpcs-rules/ruleset.xml"/>
+</ruleset>
