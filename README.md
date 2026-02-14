@@ -19,11 +19,17 @@
 composer require --dev pekral/pint-rules
 ```
 
+During install (or update), a `pint.json` file is created in your project root if it does not already exist. To overwrite an existing `pint.json` with the package default, run:
+
+```bash
+vendor/bin/pint-rules install --force
+```
+
 ---
 
 ## ⚙️ Usage
 
-1. Add a `pint.json` file to your project or use the one provided in this package.
+1. Use the `pint.json` in your project root (created by the installer), or point Pint to the package config.
 2. Run Pint with this configuration:
 
 ```bash
