@@ -65,7 +65,7 @@ vendor/bin/pint-rules install --force
 
 ### Rule Examples
 
-See the [Example/](Example/) directory for detailed examples of how each rule works, including before/after code samples.
+Rules can be customized in your `pint.json`; see the [Laravel Pint documentation](https://laravel.com/docs/pint) for available rules and configuration.
 
 ---
 
