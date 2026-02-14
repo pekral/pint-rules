@@ -7,7 +7,7 @@ namespace Pekral\PintRules;
 final class InstallerPath
 {
 
-    private const PINT_JSON = 'pint.json';
+    private const string PINT_JSON = 'pint.json';
 
     public static function resolveProjectRoot(): string
     {

@@ -16,17 +16,26 @@ use Composer\Script\ScriptEvents;
 final class ComposerPlugin implements EventSubscriberInterface, PluginInterface
 {
 
+    // phpcs:disable SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
+    // phpcs:disable SlevomatCodingStandard.Functions.DisallowEmptyFunction.EmptyFunction
+
     public function activate(Composer $composer, IOInterface $io): void
     {
+        // Required by PluginInterface
     }
 
     public function deactivate(Composer $composer, IOInterface $io): void
     {
+        // Required by PluginInterface
     }
 
     public function uninstall(Composer $composer, IOInterface $io): void
     {
+        // Required by PluginInterface
     }
+
+    // phpcs:enable SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
+    // phpcs:enable SlevomatCodingStandard.Functions.DisallowEmptyFunction.EmptyFunction
 
     public function runInstaller(): void
     {

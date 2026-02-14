@@ -75,6 +75,23 @@ See the [Example/](Example/) directory for detailed examples of how each rule wo
 * Supports PHP 8.4+.
 * Easy integration with CI/CD (GitHub Actions, GitLab CI, ...).
 
+---
+
+## 🔧 Development & CI
+
+The project uses the same GitHub Actions and Composer scripts as [pekral/php-skeleton](https://github.com/pekral/php-skeleton):
+
+* **`.github/workflows/checkers.yml`** — PHPCS, Pint, Rector, PHPStan, tests with coverage, security audit, composer validate/normalize, XML lint (on push/PR to `master`/`main` and weekly).
+* **`.github/workflows/stale.yml`** — Marks and closes stale issues/PRs (daily + manual).
+* **`.github/dependabot.yml`** — Weekly updates for Composer and GitHub Actions.
+
+**Local commands (same as CI):**
+
+```bash
+composer check   # Full quality pipeline (normalize, phpcs, pint, rector, phpstan, audit, tests)
+composer fix     # Apply all automatic fixes (normalize, rector, pint, phpcs)
+```
+
 
 
 ---

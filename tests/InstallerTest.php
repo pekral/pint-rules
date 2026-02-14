@@ -37,7 +37,7 @@ test('install creates pint.json when it does not exist', function (): void {
         expect($exitCode)->toBe(0);
         expect(is_file($target))->toBeTrue();
         expect($output)->toContain('pint.json installed.');
-        expect(json_decode((string) file_get_contents($target), true))->toBeArray();
+        expect(json_decode((string) file_get_contents($target), true, 512, JSON_THROW_ON_ERROR))->toBeArray();
     } finally {
         if ($originalCwd !== '') {
             chdir($originalCwd);
@@ -84,7 +84,7 @@ test('install overwrites existing pint.json with force flag', function (): void 
         ob_end_clean();
 
         $content = (string) file_get_contents($root . '/pint.json');
-        $decoded = json_decode($content, true);
+        $decoded = json_decode($content, true, 512, JSON_THROW_ON_ERROR);
 
         expect($exitCode)->toBe(0);
         expect($decoded)->toBeArray();
