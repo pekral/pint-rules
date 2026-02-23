@@ -36,7 +36,7 @@
   "require-dev": {
     "composer/composer": "^2.0",
     "ergebnis/composer-normalize": "^2.50.0",
-    "pekral/cursor-rules": "^0.4.1",
+    "pekral/cursor-rules": "^0.5.1",
     "pekral/phpcs-rules": "^0.4.6",
     "pekral/phpstan-rules": "^0.4.5",
     "pekral/rector-rules": "^0.4.8",
