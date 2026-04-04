@@ -151,3 +151,135 @@ test('resolveSourcePintJson returns path to package pint.json', function (): voi
     expect($result)->toEndWith('pint.json');
     expect(is_file($result))->toBeTrue();
 });
+
+test('install returns error when copy fails due to read-only directory', function (): void {
+    $root = pintRulesCreateProjectRoot();
+    chmod($root, 0555);
+    $cwd = getcwd();
+    $originalCwd = $cwd !== false ? $cwd : '';
+
+    try {
+        chdir($root);
+        $exitCode = Installer::run(['pint-rules', 'install']);
+
+        expect($exitCode)->toBe(1);
+    } finally {
+        chmod($root, 0755);
+
+        if ($originalCwd !== '') {
+            chdir($originalCwd);
+        }
+
+        pintRulesRemoveDirectory($root);
+    }
+});
+
+test('install skips copy when source and target are the same file', function (): void {
+    $root = pintRulesCreateProjectRoot();
+    $sourcePintJson = InstallerPath::resolveSourcePintJson();
+    symlink($sourcePintJson, $root . '/pint.json');
+    $cwd = getcwd();
+    $originalCwd = $cwd !== false ? $cwd : '';
+
+    try {
+        chdir($root);
+        ob_start();
+        $exitCode = Installer::run(['pint-rules', 'install']);
+        $output = (string) ob_get_clean();
+
+        expect($exitCode)->toBe(0);
+        expect($output)->toContain('pint.json installed.');
+        expect(is_link($root . '/pint.json'))->toBeTrue();
+    } finally {
+        if ($originalCwd !== '') {
+            chdir($originalCwd);
+        }
+
+        pintRulesRemoveDirectory($root);
+    }
+});
+
+test('install returns error when target pint.json is a directory', function (): void {
+    $root = pintRulesCreateProjectRoot();
+    mkdir($root . '/pint.json');
+    $cwd = getcwd();
+    $originalCwd = $cwd !== false ? $cwd : '';
+
+    try {
+        chdir($root);
+        $exitCode = Installer::run(['pint-rules', 'install', '--force']);
+
+        expect($exitCode)->toBe(1);
+    } finally {
+        if ($originalCwd !== '') {
+            chdir($originalCwd);
+        }
+
+        pintRulesRemoveDirectory($root);
+    }
+});
+
+test('install returns error when existing target file cannot be removed', function (): void {
+    $root = pintRulesCreateProjectRoot();
+    pintRulesWriteFile($root . '/pint.json', '{"preset":"old"}');
+    chmod($root, 0555);
+    $cwd = getcwd();
+    $originalCwd = $cwd !== false ? $cwd : '';
+
+    try {
+        chdir($root);
+        $exitCode = Installer::run(['pint-rules', 'install', '--force']);
+
+        expect($exitCode)->toBe(1);
+    } finally {
+        chmod($root, 0755);
+
+        if ($originalCwd !== '') {
+            chdir($originalCwd);
+        }
+
+        pintRulesRemoveDirectory($root);
+    }
+});
+
+test('resolveProjectRoot traverses parent directories to find composer.json', function (): void {
+    $root = pintRulesCreateProjectRoot();
+    $subDir = $root . '/subdir';
+    mkdir($subDir);
+    $cwd = getcwd();
+    $originalCwd = $cwd !== false ? $cwd : '';
+
+    try {
+        chdir($subDir);
+        $result = InstallerPath::resolveProjectRoot();
+
+        expect($result)->toBe(realpath($root));
+    } finally {
+        if ($originalCwd !== '') {
+            chdir($originalCwd);
+        }
+
+        pintRulesRemoveDirectory($root);
+    }
+});
+
+test('resolveProjectRoot returns filesystem root when no composer.json found in path', function (): void {
+    $dir = sys_get_temp_dir() . '/pint-rules-noroot-' . bin2hex(random_bytes(4));
+    mkdir($dir);
+    $cwd = getcwd();
+    $originalCwd = $cwd !== false ? $cwd : '';
+
+    try {
+        chdir($dir);
+        $result = InstallerPath::resolveProjectRoot();
+
+        expect($result)->toBeString();
+        expect($result)->not->toBe('');
+    } finally {
+        if ($originalCwd !== '') {
+            chdir($originalCwd);
+        }
+
+        rmdir($dir);
+    }
+});

@@ -88,6 +88,6 @@
     "rector-check": "vendor/bin/rector process --dry-run",
     "rector-fix": "vendor/bin/rector process",
     "security-audit": "composer audit",
-    "test:coverage": "php -d pcov.enabled=1 -d pcov.directory=src -d xdebug.mode=off vendor/bin/pest --coverage --min=80 tests/"
+    "test:coverage": "php -d pcov.enabled=1 -d pcov.directory=src -d xdebug.mode=off vendor/bin/pest --coverage --min=100 tests/"
   }
 }
