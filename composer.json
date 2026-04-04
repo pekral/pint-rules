@@ -31,16 +31,16 @@
   "require": {
     "php": "^8.4",
     "composer-plugin-api": "^2.0",
-    "laravel/pint": "^1.27.1"
+    "laravel/pint": "^1.29.0"
   },
   "require-dev": {
-    "composer/composer": "^2.0",
+    "composer/composer": "^2.9.5",
     "ergebnis/composer-normalize": "^2.50.0",
-    "pekral/cursor-rules": "^0.5.1",
-    "pekral/phpcs-rules": "^0.4.6",
-    "pekral/phpstan-rules": "^0.4.5",
-    "pekral/rector-rules": "^0.4.8",
-    "pestphp/pest": "^4.0",
+    "pekral/cursor-rules": "dev-master",
+    "pekral/phpcs-rules": "dev-master",
+    "pekral/phpstan-rules": "dev-master",
+    "pekral/rector-rules": "dev-master",
+    "pestphp/pest": "^4.4.5",
     "roave/security-advisories": "dev-latest"
   },
   "minimum-stability": "dev",
@@ -76,7 +76,7 @@
   },
   "scripts": {
     "analyse": "vendor/bin/phpstan analyse --memory-limit=2G",
-    "build": "composer fix && composer check",
+    "build": "composer fix && composer check && vendor/bin/cursor-rules install --force --editor=claude",
     "check": "composer composer-normalize-check && composer phpcs-check && composer pint-check && composer rector-check && composer analyse && composer security-audit && composer test:coverage",
     "composer-normalize-check": "composer normalize --dry-run",
     "composer-normalize-fix": "composer normalize",
