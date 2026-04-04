@@ -97,7 +97,7 @@
     "single_blank_line_at_eof": true,
     "unary_operator_spaces": true,
     "phpdoc_indent": true,
-    "comment_to_phpdoc": true,
+    "comment_to_phpdoc": false,
     "no_empty_phpdoc": true,
     "phpdoc_add_missing_param_annotation": true,
     "phpdoc_no_useless_inheritdoc": true,
