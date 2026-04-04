@@ -85,7 +85,11 @@ final class Installer
     {
         self::removeExistingTarget($target);
 
-        if (!copy($source, $target)) {
+        set_error_handler(static fn (): bool => true);
+        $copied = copy($source, $target);
+        restore_error_handler();
+
+        if (!$copied) {
             throw InstallerFailure::fileCopyFailed($source, $target);
         }
     }

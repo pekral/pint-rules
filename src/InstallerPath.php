@@ -22,7 +22,9 @@ final class InstallerPath
             return $packageSource;
         }
 
+        // @codeCoverageIgnoreStart
         throw InstallerFailure::missingSource($packageSource);
+        // @codeCoverageIgnoreEnd
     }
 
     public static function resolveTargetPintJson(string $root): string
@@ -40,7 +42,9 @@ final class InstallerPath
         $dir = getcwd();
 
         if ($dir === false) {
+            // @codeCoverageIgnoreStart
             return sys_get_temp_dir();
+            // @codeCoverageIgnoreEnd
         }
 
         while ($dir !== '' && !self::isFilesystemRoot($dir) && !file_exists($dir . '/composer.json')) {
@@ -56,7 +60,9 @@ final class InstallerPath
             return true;
         }
 
+        // @codeCoverageIgnoreStart
         return preg_match('/^[A-Za-z]:\\\\?$/', $path) === 1;
+        // @codeCoverageIgnoreEnd
     }
 
 }
