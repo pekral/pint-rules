@@ -76,7 +76,7 @@
   },
   "scripts": {
     "analyse": "vendor/bin/phpstan analyse --memory-limit=2G",
-    "build": "composer fix && composer check && vendor/bin/cursor-rules install --force --editor=claude",
+    "build": "composer fix && composer check",
     "check": "composer composer-normalize-check && composer phpcs-check && composer pint-check && composer rector-check && composer analyse && composer security-audit && composer test:coverage",
     "composer-normalize-check": "composer normalize --dry-run",
     "composer-normalize-fix": "composer normalize",
